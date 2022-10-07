@@ -51,7 +51,7 @@ func CDNFilter() func(string) bool {
 			ips = append(ips, resolveName(host)...)
 		}
 		for _, ip := range ips {
-			found, err := client.Check(ip)
+			found, _, err := client.Check(ip)
 			if found && err == nil {
 				return true
 			}
